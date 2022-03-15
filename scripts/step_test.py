@@ -8,7 +8,7 @@ import rospkg
 # import our training environment
 from stable_baselines3 import DDPG
 #import my_reach_env
-from openai_ros.task_envs.reach import ReachEnv# this line fails
+from openai_ros.task_envs.reach.reach import ReachEnv # this line fails
 
 
 if __name__ == '__main__':
