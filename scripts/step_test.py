@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import gym
 from gym import wrappers
@@ -6,9 +6,9 @@ from gym import wrappers
 import rospy
 import rospkg
 # import our training environment
-#from openai_ros.task_envs.reach import ReachEnv
-import my_reach_env
 from stable_baselines3 import DDPG
+#import my_reach_env
+from openai_ros.task_envs.reach import ReachEnv# this line fails
 
 
 if __name__ == '__main__':
