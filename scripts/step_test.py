@@ -18,6 +18,7 @@ if __name__ == '__main__':
     # Create the Gym environment
     env = gym.make('PandaReach-v2')
     rospy.loginfo("Gym environment made")
+    print("made env")
 
     # Set the logging system
     rospack = rospkg.RosPack()
@@ -25,18 +26,24 @@ if __name__ == '__main__':
     outdir = pkg_path + '/testing_results'
     env = wrappers.Monitor(env, outdir, force = True)
     rospy.loginfo("Monitor Wrapper started")
+    print("set log sys")
 
     # Load trained model
     model_class = DDPG
-    model = model_class.load("./models/reach_vec", env = env)
+    model = model_class.load("/home/panda/catkin_ws/src/panda_reach_test/models/reach_vec", env = env)
     rospy.loginfo("Trained model loaded")
-    
+    print("loaded model")
+
     # start outputting path.
     obs = env.reset()
+    obs['observation'] = obs['observation'][:3]
     done = False
     while not done:
-        action, _ = model.predict(obs, deterministic = True)
+        action, _ = model.predict(obs, deterministic = True)#unexpected observation shape
+        print("action:", action)
         obs, reward, done, _ = env.step(action)
+        print("obs:", obs)
+        obs['observation'] = obs['observation'][:3]
         rospy.loginfo("observation:", obs)
         env.render()
 
