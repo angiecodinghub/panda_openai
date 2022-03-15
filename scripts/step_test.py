@@ -36,15 +36,15 @@ if __name__ == '__main__':
 
     # start outputting path.
     obs = env.reset()
-    obs['observation'] = obs['observation'][:3]
+    #obs['observation'] = obs['observation'][:3]
     done = False
     while not done:
         action, _ = model.predict(obs, deterministic = True)#unexpected observation shape
         print("action:", action)
         obs, reward, done, _ = env.step(action)
         print("obs:", obs)
-        obs['observation'] = obs['observation'][:3]
+        #obs['observation'] = obs['observation'][:3]
         rospy.loginfo("observation:", obs)
-        env.render()
+        #env.render()
 
-    env.close()
+    #env.close()
