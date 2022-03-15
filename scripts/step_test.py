@@ -6,7 +6,8 @@ from gym import wrappers
 import rospy
 import rospkg
 # import our training environment
-from openai_ros.task_envs.reach import ReachEnv
+#from openai_ros.task_envs.reach import ReachEnv
+import my_reach_env
 from stable_baselines3 import DDPG
 
 
