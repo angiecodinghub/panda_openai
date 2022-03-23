@@ -56,9 +56,9 @@ class MyReachEnv(panda_env.PandaEnv, utils.EzPickle):
         self.control_type = "ee" # we only control where the ee is at.
         self.init_pos = {
             'joint1': 0.0,
-            'joint2': 0.0,
+            'joint2': -0.785398163, # 0.0
             'joint3': 0.0,
-            'joint4': -1.57079632679,
+            'joint4': -2.35619449, # 1.57079632679
             'joint5': 0.0,
             'joint6': 1.57079632679,
             'joint7': 0.785398163397,
