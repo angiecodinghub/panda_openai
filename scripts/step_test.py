@@ -11,6 +11,7 @@ from stable_baselines3.common.vec_env import DummyVecEnv
 #import my_reach_env
 from openai_ros.task_envs.reach.reach import ReachEnv 
 import time
+import numpy as np
 
 if __name__ == '__main__':
     print("before init node")
@@ -27,15 +28,16 @@ if __name__ == '__main__':
 
     # start outputting path.
     obs = env.reset() # change this to init position?
-    #done = False
-    #action = env.action_space.sample()
-    #obs, reward, done, _ = env.step(action)
-    #time.sleep(10)
-    #action = env.action_space.sample()
-    #obs, reward, done, _ = env.step(action)
+    done = False
+    action = np.array([0.0032298252917826176, -0.14821836352348328, 0.9403465390205383])
+    obs, reward, done, _ = env.step(action)
     #print(obs)
-    #while not done:
-    #    action, _ = model.predict(obs, deterministic = True) # unexpected observation shape
-    #    action = env.action_space.sample()
-    #    obs, reward, done, _ = env.step(action)
-    #    print("action:\n ", action, "\n observation:\n", obs)
+    # Failed to validate trajectory: couldn't receive full current joint state within 1s
+    # Failed to fetch current robot state.
+    """
+    while not done:
+        # action, _ = model.predict(obs, deterministic = True) # unexpected observation shape
+        action = env.action_space.sample()
+        obs, reward, done, _ = env.step(action)
+        print("step test new observation:\n", obs['observation'])    
+    """
