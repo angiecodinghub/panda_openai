@@ -41,6 +41,7 @@ if __name__ == '__main__':
         rospy.loginfo("NEW OBSERVATION:")
         rospy.loginfo(obs['observation'])
 
+    env.close()
     ##############    
     # reachable action for "ee" type
     # action = np.array([0.0032298252917826176, -0.14821836352348328, 0.9403465390205383])
