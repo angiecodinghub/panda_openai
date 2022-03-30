@@ -87,6 +87,9 @@ result = self.group.go(wait = True)
 ```
 2. The same issue mentioned [here](https://answers.ros.org/question/273871/controller-aborts-trajectory-goal-with-goal_tolerance_violation-after-execution/). The performance doesn't change, but the warning messages are super annoying.
 
+3. For the "ee" action space, the planned path from MoveIt are lengthy and unnecessary. A demo video can be seen here:<br>
+https://user-images.githubusercontent.com/61912547/160915547-5f70eae9-ac67-4de0-ab9f-f889f945c626.mp4
+
 ## Contact Info
 
 Maintainer: Angela Wu (annwu@rice.edu) <br>
