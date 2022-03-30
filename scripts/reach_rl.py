@@ -29,8 +29,6 @@ if __name__ == '__main__':
     # If True the HER transitions will get sampled online.
     # data is available in sequential order.
     online_sampling = True
-    # Time limit for the episodes
-    max_episode_length = 1000
 
     # Initialize the model
     model = model_class(
@@ -42,12 +40,12 @@ if __name__ == '__main__':
             n_sampled_goal = 4, # # artificial transitions to generate for each actual transition.
             goal_selection_strategy = goal_selection_strategy,
             online_sampling = online_sampling,
-            max_episode_length = max_episode_length,
         ),
         verbose = 1,
-        tensorboard_log="./reach_rl/"
+#        tensorboard_log="./reach_rl/"
     )
+    rospy.loginfo("MODEL INITIALIZED")
 
     # Train the model
-    model.learn(15000)
-    model.save("./reach_rl")
+    model.learn(1000) # 100: timesteps.
+#    model.save("./reach_rl")
