@@ -23,7 +23,7 @@ if __name__ == '__main__':
 
     # Load trained model
     model_class = DDPG
-    model = model_class.load("/home/panda/catkin_ws/src/panda_reach_test/models/reach_joint", env = env)
+    model = model_class.load("/home/panda/catkin_ws/src/panda_openai/models/reach_joint", env = env)
     rospy.loginfo("LOADED MODEL")
 
     # start outputting path.
