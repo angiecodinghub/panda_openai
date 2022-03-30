@@ -73,8 +73,11 @@ You can get the full functionality as seen in the demo down below by running the
 * roslaunch panda_moveit_config panda_moveit.launch (load_gripper:=False)
 * roslaunch panda_openai ($ name of your launch file)
 ## Demo
+1. step function:<br>
+https://user-images.githubusercontent.com/61912547/160753940-38d11452-d68e-4303-892c-de86cde610a1.mp4
 
 ## Unresolved Bugs
+
 1. The step function takes quite long to execute. It's in the 0.1 scale while that of the panda-gym package is in the 0.001 scale.
 2. The same issue mentioned [here](https://answers.ros.org/question/273871/controller-aborts-trajectory-goal-with-goal_tolerance_violation-after-execution/). The performance doesn't change, but the warning messages are super annoying.
 
