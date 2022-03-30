@@ -78,7 +78,10 @@ https://user-images.githubusercontent.com/61912547/160753940-38d11452-d68e-4303-
 
 ## Unresolved Bugs
 
-1. The step function takes quite long to execute. It's in the 0.1 scale while that of the panda-gym package is in the 0.001 scale.
+1. The step function takes quite long to execute. It's in the 0.1 scale while that of the panda-gym package is in the 0.001 scale. The following command is the bottleneck (in openai_ros):
+```python
+result = self.group.go(wait = True)
+```
 2. The same issue mentioned [here](https://answers.ros.org/question/273871/controller-aborts-trajectory-goal-with-goal_tolerance_violation-after-execution/). The performance doesn't change, but the warning messages are super annoying.
 
 ## Contact Info
