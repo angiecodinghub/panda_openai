@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
     <!-- Launch the training system -->
-    <node pkg="panda_reach_test" name="reachenv" type="step_test.py" output="screen"/>
+    <node pkg="panda_openai" name="reachenv" type="step_test.py" output="screen"/>
 </launch>
