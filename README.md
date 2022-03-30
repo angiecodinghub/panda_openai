@@ -75,7 +75,7 @@ You can get the full functionality as seen in the demo down below by running the
 ## Demo
 1. step function:<br>
 https://user-images.githubusercontent.com/61912547/160753940-38d11452-d68e-4303-892c-de86cde610a1.mp4
-<br>
+
 2. training a model:<br>
 https://user-images.githubusercontent.com/61912547/160755796-f5470549-598f-478c-a813-d7f525dbe37d.mp4
 
