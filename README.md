@@ -2,7 +2,7 @@
 
 ## Capabilities
  
-This **ROS Noetic** package is where we put all the training scripts in. You're expected to run this package with the **franka_gazebo** package
+This **ROS Noetic** package is where we put all the training scripts in.
 
 ## Installation
 
