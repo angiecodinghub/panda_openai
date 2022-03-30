@@ -69,7 +69,7 @@ The following python3 modules will need to be installed as well:<br>
 ```
 3. how to launch a node:<br>
 You can get the full functionality as seen in the demo down below by running these 3 commands in order:
-* roslaunch panda_gazebo panda.launch
+* roslaunch panda_gazebo panda.launch (headless:=True)
 * roslaunch panda_moveit_config panda_moveit.launch (load_gripper:=False)
 * roslaunch panda_openai ($ name of your launch file)
 ## Demo
@@ -81,13 +81,15 @@ https://user-images.githubusercontent.com/61912547/160755796-f5470549-598f-478c-
 
 ## Unresolved Bugs
 
-1. The step function takes quite long to execute. It's in the 0.1 scale while that of the panda-gym package is in the 0.001 scale. The following command is the bottleneck (in openai_ros):
+1. [HALT] The step function takes quite long to execute. It's in the 0.1 scale while that of the panda-gym package is in the 0.001 scale. The following command is the bottleneck (in openai_ros):
 ```python
 result = self.group.go(wait = True)
 ```
-2. The same issue mentioned [here](https://answers.ros.org/question/273871/controller-aborts-trajectory-goal-with-goal_tolerance_violation-after-execution/). The performance doesn't change, but the warning messages are super annoying.
+This is cause by the ```wait = True``` flag; when it is set as ```false```, it takes 0f 0.001 scale to execute. However, it's necessary to set ```wait = True``` here to get the correct observation space, so we'll leave it as it is for now.
 
-3. For the "ee" action space, the planned path from MoveIt are lengthy and unnecessary. A demo video can be seen here:<br>
+2. [ONGOING] The same issue mentioned [here](https://answers.ros.org/question/273871/controller-aborts-trajectory-goal-with-goal_tolerance_violation-after-execution/). The performance doesn't change, but the warning messages are super annoying.
+
+3. [ONGOING] For the "ee" action space, the planned path from MoveIt are lengthy and unnecessary. A demo video can be seen here:<br>
 https://user-images.githubusercontent.com/61912547/160915547-5f70eae9-ac67-4de0-ab9f-f889f945c626.mp4
 
 ## Contact Info
