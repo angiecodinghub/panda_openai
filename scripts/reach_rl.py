@@ -42,10 +42,10 @@ if __name__ == '__main__':
             online_sampling = online_sampling,
         ),
         verbose = 1,
-#        tensorboard_log="./reach_rl/"
+        # tensorboard_log="./reach_rl/"
     )
     rospy.loginfo("MODEL INITIALIZED")
 
     # Train the model
-    model.learn(1000) # 100: timesteps.
-#    model.save("./reach_rl")
+    model.learn(100) # 100: timesteps.
+    model.save("/home/panda/catkin_ws/src/panda_openai/models/reach_rl_100") ### wait where is this stored?
