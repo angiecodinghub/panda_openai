@@ -92,7 +92,7 @@ This is cause by the ```wait = True``` flag; when it is set as ```false```, it t
 3. [ONGOING] For the "ee" action space, the planned path from MoveIt are lengthy and unnecessary. A demo video can be seen here:<br>
 https://user-images.githubusercontent.com/61912547/160915547-5f70eae9-ac67-4de0-ab9f-f889f945c626.mp4
 
-4. [ONGIONG] When training, error "is the target within bounds?" appear when the robot is quite stretched. However, the action space has been clipped to keep within bound. An example figure is attached:
+4. [ONGIONG] When training, error "is the target within bounds?" appear when the robot is quite stretched, or enccountered a collision. However, the action space has been clipped to keep within bound. Two example figures are attached:
 
 ## Contact Info
 
