@@ -80,19 +80,13 @@ https://user-images.githubusercontent.com/61912547/160753940-38d11452-d68e-4303-
 https://user-images.githubusercontent.com/61912547/160755796-f5470549-598f-478c-a813-d7f525dbe37d.mp4
 
 ## Unresolved Bugs
+1. [ONGOING] The same issue mentioned [here](https://answers.ros.org/question/273871/controller-aborts-trajectory-goal-with-goal_tolerance_violation-after-execution/). The performance doesn't change, but the warning messages are super annoying.
 
-1. [HALT] The step function takes quite long to execute. It's in the 0.1 scale while that of the panda-gym package is in the 0.001 scale. The following command is the bottleneck (in openai_ros):
-```python
-result = self.group.go(wait = True)
-```
-This is cause by the ```wait = True``` flag; when it is set as ```false```, it takes 0f 0.001 scale to execute. However, it's necessary to set ```wait = True``` here to get the correct observation space, so we'll leave it as it is for now.
-
-2. [ONGOING] The same issue mentioned [here](https://answers.ros.org/question/273871/controller-aborts-trajectory-goal-with-goal_tolerance_violation-after-execution/). The performance doesn't change, but the warning messages are super annoying.
-
-3. [ONGOING] For the "ee" action space, the planned path from MoveIt are lengthy and unnecessary. A demo video can be seen here:<br>
+2. [HALT] For the "ee" action space, the planned path from MoveIt are lengthy and unnecessary. A demo video can be seen here:<br>
 https://user-images.githubusercontent.com/61912547/160915547-5f70eae9-ac67-4de0-ab9f-f889f945c626.mp4
+In panda-gym, they actually acquire the degree of the 7 joints from the ee position via pybullet's inverse kinematics function, and feed the degree of the 7 joints to moveit. It seems that we'll need to write our own IK node for Gazebo.
 
-4. [ONGIONG] When training, error "is the target within bounds?" appear when the robot is quite stretched, or enccountered a collision. However, the action space has been clipped to keep within bound. Two example figures are attached:
+3. [ONGIONG] When training, error "is the target within bounds?" appear when the robot is quite stretched, or enccountered a collision. However, the action space has been clipped to keep within bound. Two example figures are attached:
 ![Alt text](./figures/collide?raw=true "collide")
 ![Alt text](./figures/stretched?raw=true "stretched")
 ## Contact Info
