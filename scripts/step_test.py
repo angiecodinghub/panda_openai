@@ -17,8 +17,8 @@ if __name__ == '__main__':
     # init ROS node.
     rospy.init_node('step_test', anonymous = True, log_level=rospy.INFO)
 
-    # Create the Gym environment
-    env = gym.make('PandaReach-v2', control_type = "joint")  # ee (action space: 3) or joint (action space: 7)
+    # Create the Gym environment. # ee (action space: 3) or joint (action space: 7) # gazebo or real
+    env = gym.make('PandaReach-v2', control_type = "joint", robot_type = "gazebo") # ee (action space: 3) or joint (action space: 7)
     rospy.loginfo("MADE ENVIRONMENT")
 
     # Load trained model
