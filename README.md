@@ -73,7 +73,7 @@ You can get the full functionality as seen in the demo down below by running the
 * roslaunch panda_moveit_config panda_moveit.launch (load_gripper:=False)
 * roslaunch panda_openai ($ name of your launch file)
 
-3. steps to train real robots:<br>\
+3. steps to train real robots:<br>
 * (sudo su)
 * . ./control.bash
 * . ./moveit.bash
