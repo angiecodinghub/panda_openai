@@ -30,7 +30,7 @@ The following python3 modules will need to be installed as well:<br>
 ```python
     rospy.init_node('step_test', anonymous = True)
 
-    env = gym.make('PandaReach-v2', control_type = "joint")
+    env = gym.make('PandaReach-v2', control_type = "joint", robot_type = "real")
 
     model_class = DDPG
     model = model_class.load("$(path to your model)", env = env)
@@ -47,7 +47,7 @@ The following python3 modules will need to be installed as well:<br>
 ```python
     rospy.init_node('reach_rl', anonymous = True)
 
-    env = gym.make('PandaReach-v2', control_type = "joint")
+    env = gym.make('PandaReach-v2', control_type = "joint", robot_type = "real)
 
     model_class = DDPG
     goal_selection_strategy = 'future'
@@ -67,11 +67,19 @@ The following python3 modules will need to be installed as well:<br>
 
     model.learn(1000)
 ```
-3. how to launch a node:<br>
+3. steps to train gazebo simulator:<br>
 You can get the full functionality as seen in the demo down below by running these 3 commands in order:
 * roslaunch panda_gazebo panda.launch (headless:=True)
 * roslaunch panda_moveit_config panda_moveit.launch (load_gripper:=False)
 * roslaunch panda_openai ($ name of your launch file)
+
+3. steps to train real robots:<br>\
+* (sudo su)
+* . ./control.bash
+* . ./moveit.bash
+* (. ./rviz.bash)
+* roslaunch panda_openai ($ name of your launch file)
+
 ## Demo
 1. step function:<br>
 https://user-images.githubusercontent.com/61912547/160753940-38d11452-d68e-4303-892c-de86cde610a1.mp4

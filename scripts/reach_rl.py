@@ -18,7 +18,7 @@ if __name__ == '__main__':
     rospy.init_node('reach_rl', anonymous = True, log_level=rospy.INFO)
     
     # Create the Gym environment
-    env = gym.make('PandaReach-v2', control_type = "joint")  # ee (action space: 3) or joint (action space: 7)
+    env = gym.make('PandaReach-v2', control_type = "joint", robot_type = "real")  # ee (action space: 3) or joint (action space: 7)
     rospy.loginfo("MADE ENVIRONMENT")
 
     model_class = DDPG
@@ -48,4 +48,4 @@ if __name__ == '__main__':
 
     # Train the model
     model.learn(100) # 100: timesteps.
-    model.save("/home/panda/catkin_ws/src/panda_openai/models/reach_rl_100") ### wait where is this stored?
+   #  model.save("/home/panda/catkin_ws/src/panda_openai/models/reach_rl_100") ### wait where is this stored?

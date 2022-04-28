@@ -18,7 +18,7 @@ if __name__ == '__main__':
     rospy.init_node('step_test', anonymous = True, log_level=rospy.INFO)
 
     # Create the Gym environment. # ee (action space: 3) or joint (action space: 7) # gazebo or real
-    env = gym.make('PandaReach-v2', control_type = "joint", robot_type = "gazebo") # ee (action space: 3) or joint (action space: 7)
+    env = gym.make('PandaReach-v2', control_type = "joint", robot_type = "real") # ee (action space: 3) or joint (action space: 7)
     rospy.loginfo("MADE ENVIRONMENT")
 
     # Load trained model
@@ -33,6 +33,7 @@ if __name__ == '__main__':
     rospy.loginfo(obs["desired_goal"])
     rospy.loginfo("START OBSERVATION:")
     rospy.loginfo(obs['observation'])
+
     while not done:
         action, _ = model.predict(obs, deterministic = True)
         obs, reward, done, _ = env.step(action)
@@ -40,6 +41,10 @@ if __name__ == '__main__':
         rospy.loginfo(action)
         rospy.loginfo("NEW OBSERVATION:")
         rospy.loginfo(obs['observation'])
+
+    rospy.loginfo("PAUSE AND RESET TO INIT POSE")
+    rospy.sleep(5)    
+    env.reset()
 
     env.close()
     ##############    
