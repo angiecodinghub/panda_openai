@@ -47,5 +47,21 @@ if __name__ == '__main__':
     rospy.loginfo("MODEL INITIALIZED")
 
     # Train the model
-    model.learn(100) # 100: timesteps.
-   #  model.save("/home/panda/catkin_ws/src/panda_openai/models/reach_rl_100") ### wait where is this stored?
+    model.learn(10000) # 100: timesteps.
+# model.save("/home/panda/catkin_ws/src/panda_openai/models/reach_rl_10000")
+# reach_rl_10000's last stats:
+# ---------------------------------
+# | rollout/           |          |
+# |    ep_len_mean     | 2        |
+# |    ep_rew_mean     | -1       |
+# | time/              |          |
+# |    episodes        | 4528     |
+# |    fps             | 0        |
+# |    time_elapsed    | 16285    |
+# |    total_timesteps | 9997     |
+# | train/             |          |
+# |    actor_loss      | 0.123    |
+# |    critic_loss     | 0.00758  |
+# |    learning_rate   | 0.001    |
+# |    n_updates       | 9901     |
+# ---------------------------------
