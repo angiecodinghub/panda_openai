@@ -94,9 +94,10 @@ https://user-images.githubusercontent.com/61912547/160755796-f5470549-598f-478c-
 https://user-images.githubusercontent.com/61912547/160915547-5f70eae9-ac67-4de0-ab9f-f889f945c626.mp4
 In panda-gym, they actually acquire the degree of the 7 joints from the ee position via pybullet's inverse kinematics function, and feed the degree of the 7 joints to moveit. It seems that we'll need to write our own IK node for Gazebo.
 
-3. [ONGIONG] When training, error "is the target within bounds?" appear when the robot is quite stretched, or enccountered a collision. However, the action space has been clipped to keep within bound. Two example figures are attached:
+3. [FIXED?] When training, error "is the target within bounds?" appear when the robot is quite stretched, or enccountered a collision. However, the action space has been clipped to keep within bound. Two example figures are attached:
 ![Alt text](./figures/collide?raw=true "collide")
 ![Alt text](./figures/stretched?raw=true "stretched")
+Update: setting the dz coordinate of the goal as negative seems to fix this problem.
 ## Contact Info
 
 Maintainer: Angela Wu (annwu@rice.edu) <br>
